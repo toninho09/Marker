@@ -1,0 +1,79 @@
+
+/category/list{
+obtem toda as categorias para markers
+}
+
+/marker/filter{
+obtem todos os markers pegos com o filtro,
+filtros:{
+	posicao,
+	distancia,
+	categoria,
+	usuario,
+	data
+	}
+}
+
+/marker/add{
+cadastra um novo marker
+campos:{
+	posicao,
+	titulo,
+	categoria,
+	usuario,
+	imagem
+	}
+}
+
+/marker/comment/list{
+lista os comentarios na marcacao
+campos{
+		marker,
+		quantidade-pagina,
+		pagina,
+		order
+	}
+}
+
+/marker/comment/add{
+adiciona um comentario a um marker
+campos{
+	marker,
+	comentario,
+	}
+}
+
+/user/register{
+login do usuario
+campos:{
+	nick,
+	pass,
+	email,
+	}
+}
+
+/user/auth{
+autenticação do usuario
+campos{
+	nick,
+	pass
+	}
+}
+
+/follow/add{
+seguir usuario
+campos{
+	usuario
+	}
+}
+}
+
+/follow/list{
+mostra os seguidores
+campos{
+	usuario,
+	quantidade-pagina,
+	pagina,
+	order
+	}
+}
