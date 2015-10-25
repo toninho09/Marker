@@ -55,12 +55,15 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
-			'password'  => '',
+			'database'  => 'Marker',
+			'username'  => 'user',
+			'password'  => 'user',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
+			'prefix'    => '',          
+			'options'   => array(
+                PDO::ATTR_PERSISTENT => true,
+            ),
 		),
 
 		'pgsql' => array(

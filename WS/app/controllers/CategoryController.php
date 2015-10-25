@@ -2,8 +2,12 @@
 
 class CategoryController extends BaseController {
 
-	public function list(){
-		
+	/**
+	 * /category/list
+	 * LISTA AS CATEGORIAS DE VOLTA PARA O APP
+	 */
+	public function lists(){
+		return new RequestResponse(VWCategory::all());
 	}
 
 }
