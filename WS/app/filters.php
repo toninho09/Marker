@@ -2,13 +2,17 @@
 
 App::before(function($request)
 {
-	//
+
+	header("Access-Control-Allow-Origin: *");
+	Log::debug($request);
+	Log::debug(Input::all());
 });
 
 
 App::after(function($request, $response)
 {
-	//
+	$response->header('Content-Type', "application/json");
+	$response->header('Content-Length', strlen($response->getOriginalContent()));
 });
 
 

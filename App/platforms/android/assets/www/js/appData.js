@@ -1,4 +1,4 @@
-var appData = {
+var appData = function(){
 	
 	var self = this;
 	
@@ -16,4 +16,5 @@ var appData = {
 	self.init = function(){
 		self.token = window.localStorage.getItem('token');
 	}
+	return self;
 }
