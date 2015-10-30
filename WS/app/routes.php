@@ -13,8 +13,9 @@ Route::group(array('before' => 'auth'), function(){
 	Route::post('/marker/filter',array('as'=>'marker.filter','uses'=>'MarkerController@filter'));
 	Route::post('/marker/create',array('as'=>'marker.create','uses'=>'MarkerController@create'));
 	Route::post('/marker/like',array('as'=>'marker.like','uses'=>'MarkerController@like'));
-	Route::post('/marker/unlike',array('as'=>'marker.unlike','uses'=>'MarkerController@unlike'));
+	Route::post('/marker/unLike',array('as'=>'marker.unlike','uses'=>'MarkerController@unLike'));
 	Route::post('/follow/follow',array('as'=>'follow.follow','uses'=>'FollowController@follow'));
+	Route::post('/follow/unFollow',array('as'=>'follow.unfollow','uses'=>'FollowController@unFollow'));
 });
 
 Route::any('/dev/marker/popule', function(){

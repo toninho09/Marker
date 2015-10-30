@@ -79,7 +79,7 @@ class MarkerController extends BaseController {
 	 * /marker/unlike
 	 * @return [type] [description]
 	 */
-	public function unlike(){
+	public function unLike(){
 		$marker = Input::get('marker',null);
 		$validation = Validator::make(['marker'=>$marker],
 			['marker'=>'required|exists:Marker,id']);
