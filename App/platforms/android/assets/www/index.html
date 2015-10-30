@@ -1,74 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/foundation.css" />
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/vendor/jquery.js"></script>
-    <script type="text/javascript" src="js/foundation.min.js"></script>
-    <script type="text/javascript" src="js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="js/appData.js"></script>
-    <script type="text/javascript" src="js/ws.js"></script>
-    <script type="text/javascript">
-    var map;
-    
-    document.addEventListener("deviceready", function() {
-      var div = document.getElementById("map_canvas");
-
-      // Initialize the map view
-      map = plugin.google.maps.Map.getMap(div);
-
-      // Wait until the map is ready status.
-      map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-      
-      $(document).foundation();
-    }, false);
-
-    function onMapReady() {
-      var button = document.getElementById("button");
-      button.addEventListener("click", onBtnClicked, false);
-      var myPosition = document.getElementById("myPosition");
-      myPosition.addEventListener("click",loadMyPosition,false);
+<head>
+    <link rel="import" href="page/header.html">
+  <title>Home</title>
+</head>
+<body>
+  
+</body>
+<script type="text/javascript">
+  $(document).ready(function() {
+    alert(JSON.stringify(appData));
+    if(appData.token != null && appData.token.length > 0){
+      window.location = 'page/map.html';
+    }else{
+      window.location = 'page/login.html';
     }
-
-    function loadMyPosition(){
-        map.getMyLocation(onSuccess, onError);
-    }
-
-    function onBtnClicked() {
-      map.showDialog();
-    }
-
-    var onSuccess = function(location) {
-      var msg = ["Current your location:\n",
-        "latitude:" + location.latLng.lat,
-        "longitude:" + location.latLng.lng,
-        "speed:" + location.speed,
-        "time:" + location.time,
-        "bearing:" + location.bearing].join("\n");
-        alert(msg);
-
-      map.addMarker({
-        'position': location.latLng,
-        'title': 'google',
-        icon:{
-            url:'http://teste.teste/teste.png'
-        }
-      }, function(marker) {
-        marker.setDraggable(true);
-    })};
-
-    var onError = function(msg) {
-      alert("error: " + msg);
-    };
-
-    </script>
-  </head>
-  <body>
-    <h3>PhoneGap-GoogleMaps-Plugin</h3>
-    <div style="width:100%;height:400px" id="map_canvas"></div>
-    <button id="button">Full Screen</button>
-    <button id="myPosition">My Position</button>
-  </body>
+  });
+</script>
 </html>

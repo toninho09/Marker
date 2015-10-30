@@ -1,5 +1,5 @@
 <?php
 
-class BaseModel extends Eloquent {
+abstract class BaseModel extends Eloquent {
     public $timestamps = false;
 }

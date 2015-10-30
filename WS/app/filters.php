@@ -4,24 +4,21 @@ App::before(function($request)
 {
 
 	header("Access-Control-Allow-Origin: *");
-	Log::debug($request);
-	Log::debug(Input::all());
 });
 
 
 App::after(function($request, $response)
 {
 	$response->header('Content-Type', "application/json");
-	$response->header('Content-Length', strlen($response->getOriginalContent()));
+	//$response->header('Content-Length', strlen($response->getOriginalContent()));
+	Log::debug(DB::getQueryLog());
 });
 
 
 /**
  * requisição do app deve ser
  * {token :"",
- * 	request : {
  * 	<dados>
- * 	}
  * }
  */
 Route::filter('auth', function()
@@ -37,6 +34,7 @@ Route::filter('auth', function()
 	if($token->userAgent != $_SERVER['HTTP_USER_AGENT']){
 		return (new RequestResponse())->setExceptionError("this account is logged on another device");
 	}
+	Session::put('user',$token->user);
 });
 
 

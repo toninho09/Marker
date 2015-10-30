@@ -2,6 +2,11 @@
 
 class UserController extends BaseController {
 
+	/**
+	 * request : {"nick":"zenner","pass":"123456789","email":"email@email.com"}
+	 * /user/register
+	 * @return [type] [description]
+	 */
 	public function register(){
 		$nick = Input::get('nick','');
 		$pass = Input::get('pass','');
@@ -21,7 +26,11 @@ class UserController extends BaseController {
 		$user->save();
 		return new RequestResponse();
 	}
-
+	/**
+	 * request :{"nick":"zenner","pass":"123456789","email":"email@email.com"}
+	 * /user/auth
+	 * @return [type] [description]
+	 */
 	public function auth(){
 		$nick = Input::get('nick','');
 		$pass = Input::get('pass','');

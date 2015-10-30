@@ -6,7 +6,7 @@ class RequestResponse{
 	private $code;
 	private $response;
 
-	public function __construct($response = null,$status = Status::OK,$code = ErroCode::ALLFINE,$message = null){
+	public function __construct($response = null,$status = StatusConst::OK,$code = ErroCodeConst::ALLFINE,$message = null){
 		$this->status = $status;
 		$this->message = $message;
 		$this->code = $code;
@@ -30,15 +30,15 @@ class RequestResponse{
 	}
 
 	public function setValidationError($message){
-		$this->status = Status::ERRO;
-		$this->code = ErroCode::VALIDATION;
+		$this->status = StatusConst::ERRO;
+		$this->code = ErroCodeConst::VALIDATION;
 		$this->message = $message;
 		return $this;
 	}
 
 	public function setExceptionError($message){
-		$this->status = Status::ERRO;
-		$this->code = ErroCode::EXCEPTION;
+		$this->status = StatusConst::ERRO;
+		$this->code = ErroCodeConst::EXCEPTION;
 		$this->message = $message;
 		return $this;
 	}
@@ -58,11 +58,11 @@ class RequestResponse{
 	}
 
 	private function validation(){
-		if($this->code != ErroCode::ALLFINE && $this->status == Status::OK ){
-			$this->status == Status::ERRO;
+		if($this->code != ErroCodeConst::ALLFINE && $this->status == StatusConst::OK ){
+			$this->status == StatusConst::ERRO;
 		}
 
-		if($this->status == Status::ERRO &&	$this->message == null){
+		if($this->status == StatusConst::ERRO &&	$this->message == null){
 			$this->message = "Ops...";
 		}
 	}

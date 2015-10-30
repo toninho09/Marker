@@ -1,3 +1,4 @@
+$.support.cors = true;
 var WS = {
 	self:this,
 	url_base: 'http://192.168.0.104/',
