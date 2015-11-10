@@ -1,0 +1,39 @@
+<div class="bar bar-header">
+	<button class="button button-icon icon ion-navicon" ></button>
+	<h1 class="title">Markers</h1>
+	<button class="button button-icon icon ion-refresh"></button>
+</div>
+<div class=" content">
+	<div class="list">
+
+		<a class="item item-avatar" href="#">
+			<img src="img/venkman.jpg" alt="">
+			<h2>Pretty Hate Machine</h2>
+			<p>Nine Inch Nails</p>
+		</a>
+
+
+		<a class="item item-avatar" href="#">
+			<img src="img/venkman.jpg" alt="">
+			<h2>Pretty Hate Machine</h2>
+			<p>Nine Inch Nails</p>
+		</a>
+
+		<a class="item item-avatar" href="#">
+			<img src="img/venkman.jpg" alt="">
+			<h2>Pretty Hate Machine</h2>
+			<p>Nine Inch Nails</p>
+		</a>
+
+	</div>
+</div>
+
+<div ng-include src="'modules/foot.html'">
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.content').each(function(index, el) {
+			$(el).height(($("body").height()-93)+"px");
+		});
+	});
+</script>

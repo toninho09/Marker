@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- includes gerais-->
+  <link rel="import" href="header.html">
+  <script type="text/javascript">
+    var map;
+    document.addEventListener("deviceready", function() {
+      var div = document.getElementById("map_canvas");
+      map = plugin.google.maps.Map.getMap(div);
+      $(div).height(($("body").height()-93)+"px");
+      $('.content').each(function(index, el) {
+        $(el).height(($("body").height()-93)+"px");
+      });
+      setInterval(function(){
+        //map.setClickable( false );
+      }, 3000);
+      //INICIA O MAP NO CONTROLLER
+      mapController = document.querySelector('#MapController');
+      mapController = angular.element(mapController).scope();
+      mapController.map = map;
+      mapHelper.init(map);  
+    }, false);
+
+    divStack.onStack = function(){
+      $("#mapContext").hide();
+    }
+    divStack.onEmpty = function(){
+      $("#mapContext").show();
+    }
+  </script>
+</head>
+<body ng-app="appMarker" class="" >
+  <div id="MapController" ng-controller="MapController">
+    <!-- contexto principal-->
+    <div id="mapContext" ng-include src="'modules/mapContext.html'"></div>
+    <!-- contexto de usuario-->
+    <div id="userContext" class="hide margin-top-44px" ng-include src="'modules/userContext.html'"></div>
+    <!-- contexto de detalhes da marcacao-->
+    <div id="markerDetailsContext" class="hide" ng-include src="'modules/markerDetailsContext.html'"></div>
+  </div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/controller/MapController.js"></script>
+<script type="text/javascript">
+</script>
+</html>

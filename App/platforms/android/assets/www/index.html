@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="import" href="page/header.html">
+  <script type="text/javascript" src="js/appData.js"></script>
   <title>Home</title>
 </head>
 <body>
   
 </body>
 <script type="text/javascript">
-  $(document).ready(function() {
-    alert(JSON.stringify(appData));
+    //alert(JSON.stringify(appData));
     if(appData.token != null && appData.token.length > 0){
-      window.location = 'page/map.html';
+      window.location = 'map.html';
     }else{
-      window.location = 'page/login.html';
+      window.location = 'login.html';
     }
-  });
-</script>
-</html>
+  </script>
+  </html>
